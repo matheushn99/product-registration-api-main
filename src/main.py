@@ -8,7 +8,7 @@ from src.controller.product_controller import product_router
 
 app = FastAPI(
     title="Product Registration API",
-    description="Api to manage products",
+    description="API para gerenciar produtos",
     version="1.0.0",
     openapi_url="/openapi.json",
     docs_url=None,
@@ -42,7 +42,7 @@ app.include_router(auth_router)
 async def general_exception_handler(request, exc: Exception):
     return JSONResponse(
         status_code=500,
-        content={"message": "Um erro inesperado correu no servidor"}
+        content={"message": "Um erro inesperado ocorreu no servidor"}
     )
 
 

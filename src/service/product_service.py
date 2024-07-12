@@ -15,7 +15,7 @@ class ProductService:
         self.repository = repository
 
     def create(self, data: ProdutoCreateDTO) -> ProdutoDTO:
-        logging.info('Criando produto')
+        logging.info('Criando um produto')
         product = Product(**data.model_dump())
         try:
             created = self.repository.save(product)

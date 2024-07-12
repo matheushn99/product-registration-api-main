@@ -8,7 +8,7 @@ product_router = APIRouter(prefix='/products', tags=['Products'], dependencies=[
 
 @product_router.post(path='/',
                      status_code=201,
-                     description='Cria Produto',
+                     description='Cria um Produto',
                      response_model=ProdutoDTO)
 async def create(request: ProdutoCreateDTO, 
                  service: ProductService = Depends(get_product_service)
@@ -17,7 +17,7 @@ async def create(request: ProdutoCreateDTO,
 
 @product_router.get(path='/{user_id}',
                     status_code=200,
-                    description='Busca Produto por id',
+                    description='Buscar produto por id',
                     response_model=ProdutoDTO)
 async def find_by_id(user_id: int, 
                      service: ProductService = Depends(get_product_service)):
@@ -26,7 +26,7 @@ async def find_by_id(user_id: int,
 
 @product_router.get(path='/',
                     status_code=200,
-                    description='Buscar Tosdos os produtos',
+                    description='Buscar todos os produtos',
                     response_model=list[ProdutoDTO])
 async def find_all(service: ProductService = Depends(get_product_service)):
     return service.find_all()
@@ -34,7 +34,7 @@ async def find_all(service: ProductService = Depends(get_product_service)):
 
 @product_router.put(path='/{user_id}',
                     status_code=200,
-                    description='Atualizar Produto',
+                    description='Atualizar um produto',
                     response_model=ProdutoDTO)
 async def update(user_id: int, 
                  user_data: ProdutoUpdateDTO, 
@@ -44,7 +44,7 @@ async def update(user_id: int,
 
 @product_router.delete(path='/{user_id}',
                        status_code=204,
-                       description='Deletar Produto por id')
+                       description='Deletar um produto por id')
 async def delete(user_id: int, 
                  service: ProductService = Depends(get_product_service)):
     service.delete(user_id=user_id)
